@@ -29,23 +29,22 @@
    The footprint of this /temporary fix/ is quite large (about 2 GB
    permanent hard disk space is needed), but is portable (e.g., USB
    thumb-drive) since it does not affect the =PATH= variable of
-   Windows.  The fix works well-enough (/vide infra/) on a fresh
-   installation of Windows 7 Professional (64 bit).
+   Windows.  
 
    On one hand, it relies on =WinPython= (version
-   =WinPython64-3.6.7.0Qt5=) mirrored from[fn:WinPython] providing
-   Python 3.6.  Among this compilation, some of the dependencies
-   outlined by Arne Wagner are already included: =matplotlib=,
-   =uncertainties=, and performance related =cython=.  With 488 MB
-   size (as compressed archive), it is too large to be mirrored here,
-   but beside on the project page itself you find it here on
+   =WinPython64-3.6.7.0Qt5=)[fn:WinPython] providing Python 3.6.
+   Among this compilation, some of the dependencies outlined by Arne
+   Wagner are already included: =matplotlib=, =uncertainties=, and
+   performance related =cython=.  With 488 MB size (as compressed
+   archive), it is too large to be mirrored here below, but beside on
+   the project page itself you find it here on a dedicated page on
    GitHub.[fn:WinPythonGitHub]
 
    The other /essential/ dependency of =aRMSD= is the vtk-rendering
    engine.[fn:vtk] Currently, the wheel-directory maintained by
    Christoph Gohlke[fn:GohlkeDirectory] provides only one vtk-wheel
    working smoothly with the versions of WinPython tested.  It is
-   worth about 27 MB and mirrored in /this/ repository, too.
+   worth about 27 MB and is mirrored in /this/ repository, too.
 
    The two are characterized by these md5sums:
    #+BEGIN_SRC shell
@@ -56,13 +55,13 @@
 ** Install process
 
    It is mandatory that the hosting Windows operating system is
-   64 bit.  Since the system's =PATH= variable is not touched, no
-   administrator privilege is required.  Anticipate about 2 GB disk
-   space to be used since =WinPython= will provide you with many more
-   packages than only the ones needed to run =aRMSD=.
+   64 bit.  The system's =PATH= variable of the system is not touched,
+   and no administrator privilege is required.  However, anticipate
+   about 2 GB disk space to be used since =WinPython= will provide you
+   with many more packages than only the ones needed to run =aRMSD=.
 
    Download the two files into a directory easy accessible for you.  A
-   mouse double-click on the =WinPython= executable will extract this
+   mouse double-click on the =WinPython= executable will extract an
    archive.  After about one or two minutes, the newly generated
    folder =WPy-3670= equally contains an entry
    #+BEGIN_SRC shell
@@ -97,13 +96,11 @@
    Again, this solution is meant as /temporary fix/ only.  Hence, not
    requiring assistance by =openbabel=[fn:openbabel] to convert file
    formats, =aRMSD= reads most likely /only/ model data provided in
-   the =*.xyz= format.  However, alignment and scrutiny of these,
-   including report generation in a permanent log and provision of the
-   statistics plots are functional.  It actually /is expected/ that
-   =aRMSD= will inform you about the missing link to =openbabel=.
-   (Since this fix does not accesses the =PATH= variable, it will not
-   recognize =openbabel= even if it were installed on the hosting
-   computer, either.)
+   the =*.xyz= format.  It actually /is expected/ that =aRMSD= will
+   inform you about the missing link to =openbabel=.  (Since this fix
+   does not accesses the =PATH= variable, it will not recognize
+   =openbabel= even if it were installed on the hosting computer,
+   either.)
 
    If you need to compare models in a file format different than
    =*.xyz=, the freeware =openabel= may assist in the data conversion
@@ -111,8 +108,12 @@
 
    Equally, some of options accessible in the Linux-based use (e.g.,
    anaglyph representation, less dominating display of the coordinate
-   system by vtk) are skipped here.
-   
+   system by vtk) are skipped here.  Saving the renderings by vtk as
+   *.png (key stroke =s=) is supported.
+
+   However, alignment and scrutiny of the model data, including report
+   generation in a permanent log and provision of the statistics plots
+   are functional.
    
 
 [fn:ticket]  Compare the issue deposit in the original branch of the
