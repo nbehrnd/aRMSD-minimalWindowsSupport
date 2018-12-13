@@ -1,20 +1,20 @@
 
 # Table of Contents
 
-1.  [aRMSD &#x2013; minimalWindowsSupport](#org679035a)
-    1.  [background](#orgb8354da)
-    2.  [tools](#orgd810a8c)
-    3.  [Install process](#orgf6829d2)
-    4.  [Working with the fix](#org26ba21b)
-    5.  [Known limitations of this fix](#org56cb46f)
+1.  [aRMSD &#x2013; minimalWindowsSupport](#org3cd8455)
+    1.  [background](#orgb3f74f6)
+    2.  [tools](#orgf469c2e)
+    3.  [Install process](#org57c585c)
+    4.  [Working with the fix](#org82c135f)
+    5.  [Known limitations of this fix](#org1f34c0f)
 
 
-<a id="org679035a"></a>
+<a id="org3cd8455"></a>
 
 # aRMSD &#x2013; minimalWindowsSupport
 
 
-<a id="orgb8354da"></a>
+<a id="orgb3f74f6"></a>
 
 ## background
 
@@ -40,7 +40,7 @@ present, there is no similar fix addressing the 32 bit variant of
 this platform.
 
 
-<a id="orgd810a8c"></a>
+<a id="orgf469c2e"></a>
 
 ## tools
 
@@ -55,14 +55,15 @@ On one hand, it relies on `WinPython` (version
 Python 3.6.  Among this compilation, some of the dependencies
 outlined by Arne Wagner are already included: `matplotlib`,
 `uncertainties`, and performance related `cython`.  With 488 MB
-size (as compressed archive), it is too large to be mirrored on
-GitHub, but you find it here on GitHub.<sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup>
+size (as compressed archive), it is too large to be mirrored here,
+but beside on the project page itself you find it here on
+GitHub.<sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup>
 
 The other *essential* dependency of `aRMSD` is the vtk-rendering
 engine.<sup><a id="fnr.4" class="footref" href="#fn.4">4</a></sup> Currently, the wheel-directory maintained by
 Christoph Gohlke<sup><a id="fnr.5" class="footref" href="#fn.5">5</a></sup> provides only one vtk-wheel
 working smoothly with the versions of WinPython tested.  It is
-worth about 27 MB.
+worth about 27 MB and mirrored in *this* repository, too.
 
 The two are characterized by these md5sums:
 
@@ -70,7 +71,7 @@ The two are characterized by these md5sums:
     72b0612de9fdc341e87f01d9ca7b230f  WinPython64-3.6.7.0Qt5.exe
 
 
-<a id="orgf6829d2"></a>
+<a id="org57c585c"></a>
 
 ## Install process
 
@@ -102,7 +103,7 @@ Once the intermediate installation notifier clears up, you may close
 the manager entirely.
 
 
-<a id="org26ba21b"></a>
+<a id="org82c135f"></a>
 
 ## Working with the fix
 
@@ -114,14 +115,14 @@ native Windows `cmd.exe`, enter the directory of `aRMSD` housing
     python aRMSD.py
 
 
-<a id="org56cb46f"></a>
+<a id="org1f34c0f"></a>
 
 ## Known limitations of this fix
 
 Again, this solution is meant as *temporary fix* only.  Hence, not
 requiring assistance by `openbabel`<sup><a id="fnr.6" class="footref" href="#fn.6">6</a></sup> to convert file
-formats, `aRMSD` reads most likely reads *only* model data provided
-in the `*.xyz` format.  However, alignment and scrutiny of these,
+formats, `aRMSD` reads most likely *only* model data provided in
+the `*.xyz` format.  However, alignment and scrutiny of these,
 including report generation in a permanent log and provision of the
 statistics plots are functional.  It actually *is expected* that
 `aRMSD` will inform you about the missing link to `openbabel`.
@@ -130,8 +131,8 @@ recognize `openbabel` even if it were installed on the hosting
 computer, either.)
 
 If you need to compare models in a file format different than
-`*.xyz`, `openabel` (freeware) may assist in the data conversion
-toward this format if necessary.
+`*.xyz`, the freeware `openabel` may assist in the data conversion
+toward this format.
 
 Equally, some of options accessible in the Linux-based use (e.g.,
 anaglyph representation, less dominating display of the coordinate

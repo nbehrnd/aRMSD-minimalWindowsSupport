@@ -37,14 +37,15 @@
    Python 3.6.  Among this compilation, some of the dependencies
    outlined by Arne Wagner are already included: =matplotlib=,
    =uncertainties=, and performance related =cython=.  With 488 MB
-   size (as compressed archive), it is too large to be mirrored on
-   GitHub, but you find it here on GitHub.[fn:WinPythonGitHub]
+   size (as compressed archive), it is too large to be mirrored here,
+   but beside on the project page itself you find it here on
+   GitHub.[fn:WinPythonGitHub]
 
    The other /essential/ dependency of =aRMSD= is the vtk-rendering
    engine.[fn:vtk] Currently, the wheel-directory maintained by
    Christoph Gohlke[fn:GohlkeDirectory] provides only one vtk-wheel
    working smoothly with the versions of WinPython tested.  It is
-   worth about 27 MB.
+   worth about 27 MB and mirrored in /this/ repository, too.
 
    The two are characterized by these md5sums:
    #+BEGIN_SRC shell
@@ -95,8 +96,8 @@
 
    Again, this solution is meant as /temporary fix/ only.  Hence, not
    requiring assistance by =openbabel=[fn:openbabel] to convert file
-   formats, =aRMSD= reads most likely reads /only/ model data provided
-   in the =*.xyz= format.  However, alignment and scrutiny of these,
+   formats, =aRMSD= reads most likely /only/ model data provided in
+   the =*.xyz= format.  However, alignment and scrutiny of these,
    including report generation in a permanent log and provision of the
    statistics plots are functional.  It actually /is expected/ that
    =aRMSD= will inform you about the missing link to =openbabel=.
@@ -105,8 +106,8 @@
    computer, either.)
 
    If you need to compare models in a file format different than
-   =*.xyz=, =openabel= (freeware) may assist in the data conversion
-   toward this format if necessary.
+   =*.xyz=, the freeware =openabel= may assist in the data conversion
+   toward this format.
 
    Equally, some of options accessible in the Linux-based use (e.g.,
    anaglyph representation, less dominating display of the coordinate
