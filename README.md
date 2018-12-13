@@ -1,20 +1,7 @@
 
-# Table of Contents
-
-1.  [aRMSD &#x2013; minimalWindowsSupport](#orgb80aaf0)
-    1.  [background](#orgcb75b98)
-    2.  [tools](#org7b30a4a)
-    3.  [Install process](#org0e58366)
-    4.  [Working with the fix](#org33cf522)
-    5.  [Known limitations of this fix](#org05798ee)
-
-
-<a id="orgb80aaf0"></a>
 
 # aRMSD &#x2013; minimalWindowsSupport
 
-
-<a id="orgcb75b98"></a>
 
 ## background
 
@@ -39,8 +26,6 @@ hoc* and temporary fix only and assumes Windows 7 Pro (64 bit).  At
 present, there is no similar fix addressing the 32 bit variant of
 this platform.
 
-
-<a id="org7b30a4a"></a>
 
 ## tools
 
@@ -70,8 +55,6 @@ The two are characterized by these md5sums:
     72b0612de9fdc341e87f01d9ca7b230f  WinPython64-3.6.7.0Qt5.exe
 
 
-<a id="org0e58366"></a>
-
 ## Install process
 
 It is mandatory that the hosting Windows operating system is
@@ -87,8 +70,11 @@ folder `WPy-3670` equally contains an entry
 
     WinPython Control Panel.exe
 
-which basically is the package manager of `WinPython`.  A
-double-click on this opens this.  Choose now the index card
+which basically is the package manager of `WinPython`. 
+
+![img](./docSources/WinPythonFolder.png "Automatically extracted folder by `WinPython`.  Note the entry about the package manager (Control Panel, blue rectangle), and the CLI (red rectangle).")
+
+A double-click on this opens this.  Choose now the index card
 `Install / Upgrade Packages`.  In the bottom left corner of this
 display, you find a button to point this manager to the location of
 the vtk-wheel.  After a few moments, this selection will show up in
@@ -98,11 +84,11 @@ considered by `WinPython` eventually managed within the `WPy-3670`
 folder.  Again after a few moments (about 10 sec), the manager will
 install the wheel.
 
+![img](./docSources/WinPythonInstallingProcess.png "Stages of the installation process.  Left figure:  the manager with a wheel already loaded (blue rectangle) *prior* to launch the installation (red rectangle) on the index card "Install / upgrade packages".  Middle figure:  processing the wheel-installation.  Right figure: confirmation of installation (index card "Uninstall packages")")
+
 Once the intermediate installation notifier clears up, you may close
 the manager entirely.
 
-
-<a id="org33cf522"></a>
 
 ## Working with the fix
 
@@ -113,8 +99,6 @@ native Windows `cmd.exe`, enter the directory of `aRMSD` housing
 
     python aRMSD.py
 
-
-<a id="org05798ee"></a>
 
 ## Known limitations of this fix
 

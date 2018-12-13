@@ -1,3 +1,26 @@
+# file name: README.org
+# last edit: 13-Dez-2018
+#+AUTHOR:  
+#+TITLE:   README
+#+DATE:    
+
+#+OPTIONS: toc:nil
+
+#+LATEX_CLASS:    koma-article
+#+LATEX_HEADER:   \usepackage[a4paper]{geometry}
+
+#+LATEX_HEADER:   \usepackage{libertine}
+#+LATEX_HEADER:   \usepackage[libertine]{newtxmath}
+#+LATEX_HEADER:   \usepackage[scaled=0.9]{inconsolata}
+#+LATEX_HEADER:   \usepackage[USenglish]{babel}
+#+LATEX_HEADER:   \usepackage{microtype}
+
+#+LATEX_HEADER:   \usepackage[basicstyle=small]{listings}
+#+LATEX_HEADER:   \usepackage{graphicx}
+
+#+LATEX_HEADER:   \setkomafont{captionlabel}{\sffamily\bfseries}
+#+LATEX_HEADER:   \setcapindent{0em}  \setkomafont{caption}{\small}
+
 
 * aRMSD -- minimalWindowsSupport
 
@@ -67,8 +90,14 @@
    #+BEGIN_SRC shell
      WinPython Control Panel.exe
    #+END_SRC
-   which basically is the package manager of =WinPython=.  A
-   double-click on this opens this.  Choose now the index card
+   which basically is the package manager of =WinPython=. 
+
+   #+ATTR_LATEX:   :width 7.5cm
+   #+ATTR_HTML:    :width 35%
+   #+CAPTION:   Automatically extracted folder by =WinPython=.  Note the entry about the package manager (Control Panel, blue rectangle), and the CLI (red rectangle).
+   [[./docSources/WinPythonFolder.png]]
+
+   A double-click on this opens this.  Choose now the index card
    =Install / Upgrade Packages=.  In the bottom left corner of this
    display, you find a button to point this manager to the location of
    the vtk-wheel.  After a few moments, this selection will show up in
@@ -77,6 +106,11 @@
    considered by =WinPython= eventually managed within the =WPy-3670=
    folder.  Again after a few moments (about 10 sec), the manager will
    install the wheel.
+
+   #+ATTR_LATEX:   :width 15cm
+   #+ATTR_HTML:    :width 75%
+   #+CAPTION:  Stages of the installation process.  Left figure:  the manager with a wheel already loaded (blue rectangle) /prior/ to launch the installation (red rectangle) on the index card "Install / upgrade packages".  Middle figure:  processing the wheel-installation.  Right figure: confirmation of installation (index card "Uninstall packages")
+   [[./docSources/WinPythonInstallingProcess.png]]
 
    Once the intermediate installation notifier clears up, you may close
    the manager entirely.
@@ -115,6 +149,7 @@
    generation in a permanent log and provision of the statistics plots
    are functional.
    
+   #+LATEX:   \begin{center} $\diamond{}$  \end{center}
 
 [fn:ticket]  Compare the issue deposit in the original branch of the
 program, [[https://github.com/armsd/aRMSD/issues]].
@@ -134,3 +169,5 @@ download link:
 [[https://github.com/winpython/winpython/releases/download/1.11.20181031/Winpython32-3.6.7.0Qt5.exe]]
 
 [fn:openbabel]  Open Babel: The Open Source Chemistry Toolbox, [[http://openbabel.org/wiki/Main_Page]]
+
+
