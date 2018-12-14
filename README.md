@@ -100,7 +100,7 @@ packages considered by `WinPython` eventually managed within the
 `WPy-3670` folder.  Again after a few moments (about 10 sec), the
 manager will install the wheel.
 
-![img](./docSources/WinPythonInstallingProcess.png "Stages of the installation process.  Left figure:  the manager with a wheel already loaded (blue rectangle) *prior* to launch the installation (red rectangle) on the index card "Install / upgrade packages".  Middle figure:  processing the wheel-installation.  Right figure: confirmation of installation (index card "Uninstall packages")")
+![img](./docSources/WinPythonInstallingProcess.png "Stages of the installation process.  Left figure:  the manager with a wheel already loaded (blue rectangle) *prior* to launch the installation (red rectangle) on the index card 'Install / upgrade packages'.  Middle figure:  processing the wheel-installation.  Right figure: confirmation of installation (index card 'Uninstall packages').")
 
 Once the intermediate installation notifier clears up, you may close
 the manager entirely.
