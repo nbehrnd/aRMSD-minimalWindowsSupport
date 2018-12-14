@@ -1,5 +1,5 @@
 # file name: README.org
-# last edit: 13-Dez-2018
+# last edit: 14-Dez-2018
 #+AUTHOR:  
 #+TITLE:   README
 #+DATE:    
@@ -41,33 +41,56 @@
    engine =aRMSD= relies.[fn:ticket]
 
    /This/ project aims to provide /an elementary/ support for =aRMSD=
-   in Windows, allowing to use the program /at all/ -- even if some of
-   the functions of the program are unavailable.  It is meant as a /ad
-   hoc/ and temporary fix only and assumes Windows 7 Pro (64 bit).  At
-   present, there is no similar fix addressing the 32 bit variant of
-   this platform.
+   in Windows, allowing to use the program /at all/ by help of
+   WinPython[fn:WinPython] -- even if some of the functions present in
+   program's source are not supported by the Python version provided.
+   It is meant as a /ad hoc/ and temporary fix only.  
 
-** tools
+   In contrast to other distributions of Python (e.g., from
+   [[www.python.org]], or compilations like Anaconda / Miniconda)
+   providing a permanent installation into your system , =WinPython=
+   provides a /self-contained/ functional Python for the Windows
+   system.  In other words, you basically just decompress an archive
+   -- if needed, you may add additional Python modules (e.g., as a
+   wheel found on Gohlke's directory[fn:GohlkeDirectory], or via
+   =pip=) -- and are ready to go.  Literally, you may carry this one
+   with you on a USB thumb-drive.  Hence, you do not need
+   administrator privileges to use initiate and use this Python.  In
+   addition, it provides it's own separate and independent
+   system-independent interfaces (CLI, IDLE, etc.); so you may use it
+   side-by-side with any other preexisting installation(s) of Python,
+   either by source (e.g., Anaconda, Python, WinPython), release
+   (e.g., an already installed Python 2.7.15 and an other
+   Python 3.6.7) or version (32 bit / 64 bit, if supported by the
+   OS).[fn:WinPythonPath]
+
+   As example, the following outlines the essential steps to use
+   =aRMSD= in a 64 bit system (and Python 3.6.5), or in a 32 bit
+   system (and Python 2.7.13) allowing at least a basic use of the
+   program (scrutiny of models in the =*.xyz= format).
+
+
+
+** Example Windows 7 Pro, 64 bit (Python 3.6.5)
 
    The footprint of this /temporary fix/ is quite large (about 2 GB
-   permanent hard disk space is needed), but is portable (e.g., USB
-   thumb-drive) since it does not affect the =PATH= variable of
-   Windows.  
+   permanent hard disk space is needed), since =WinPython= will
+   provide you many more packages than required to run =aRMSD=.
 
-   On one hand, it relies on =WinPython= (version
-   =WinPython64-3.6.7.0Qt5=)[fn:WinPython] providing Python 3.6.
-   Among this compilation, some of the dependencies outlined by Arne
-   Wagner are already included: =matplotlib=, =uncertainties=, and
-   performance related =cython=.  With 488 MB size (as compressed
-   archive), it is too large to be mirrored here below, but beside on
-   the project page itself you find it here on a dedicated page on
-   GitHub.[fn:WinPythonGitHub]
+   =WinPython= (version =WinPython64-3.6.7.0Qt5=)[fn:WinPython]
+   provides Python 3.6.  This compilation includes some of the
+   dependencies outlined by Arne Wagner:  =matplotlib=,
+   =uncertainties=, and performance related =cython=.  With 488 MB
+   size (as compressed archive), it is too large to be mirrored here
+   below, but beside on the project page itself you find it here on a
+   dedicated page on GitHub.[fn:WinPythonGitHub]
 
    The other /essential/ dependency of =aRMSD= is the vtk-rendering
    engine.[fn:vtk] Currently, the wheel-directory maintained by
    Christoph Gohlke[fn:GohlkeDirectory] provides only one vtk-wheel
    working smoothly with the versions of WinPython tested.  It is
-   worth about 27 MB and is mirrored in /this/ repository, too.
+   worth about 27 MB and is mirrored in /this/ repository (folder
+   =cp36-win_amd64=).
 
    The two are characterized by these md5sums:
    #+BEGIN_SRC shell
@@ -75,55 +98,56 @@
      72b0612de9fdc341e87f01d9ca7b230f  WinPython64-3.6.7.0Qt5.exe
    #+END_SRC
 
-** Install process
+*** Install process
 
-   It is mandatory that the hosting Windows operating system is
-   64 bit.  The system's =PATH= variable of the system is not touched,
-   and no administrator privilege is required.  However, anticipate
-   about 2 GB disk space to be used since =WinPython= will provide you
-   with many more packages than only the ones needed to run =aRMSD=.
+    It is mandatory that the hosting Windows operating system is
+    64 bit.  The system's =PATH= variable of the system is not
+    touched, and no administrator privilege is required.  However,
+    anticipate about 2 GB disk space to be used since =WinPython= will
+    provide you with many more packages than only the ones needed to
+    run =aRMSD=.
 
-   Download the two files into a directory easy accessible for you.  A
-   mouse double-click on the =WinPython= executable will extract an
-   archive.  After about one or two minutes, the newly generated
-   folder =WPy-3670= equally contains an entry
-   #+BEGIN_SRC shell
-     WinPython Control Panel.exe
-   #+END_SRC
-   which basically is the package manager of =WinPython=. 
+    Download the two files into a directory easy accessible for you.
+    A mouse double-click on the =WinPython= executable will extract an
+    archive.  After about one or two minutes, the newly generated
+    folder =WPy-3670= equally contains an entry
+    #+BEGIN_SRC shell
+      WinPython Control Panel.exe
+    #+END_SRC
+    which basically is the package manager of =WinPython=. 
 
-   #+ATTR_LATEX:   :width 7.5cm
-   #+ATTR_HTML:    :width 35%
-   #+CAPTION:   Automatically extracted folder by =WinPython=.  Note the entry about the package manager (Control Panel, blue rectangle), and the CLI (red rectangle).
-   [[./docSources/WinPythonFolder.png]]
+    #+ATTR_LATEX:   :width 7.5cm
+    #+ATTR_HTML:    :width 35%
+    #+CAPTION:   Automatically extracted folder by =WinPython=.  Note the entry about the package manager (Control Panel, blue rectangle), and the CLI (red rectangle).
+    [[./docSources/WinPythonFolder.png]]
 
-   A double-click on this opens this.  Choose now the index card
-   =Install / Upgrade Packages=.  In the bottom left corner of this
-   display, you find a button to point this manager to the location of
-   the vtk-wheel.  After a few moments, this selection will show up in
-   the main menu of the manager, too.  Subsequently, push the button
-   in the bottom right corner to add the wheel to the packages
-   considered by =WinPython= eventually managed within the =WPy-3670=
-   folder.  Again after a few moments (about 10 sec), the manager will
-   install the wheel.
+    A double-click on this opens this.  Choose now the index card
+    =Install / Upgrade Packages=.  In the bottom left corner of this
+    display, you find a button to point this manager to the location
+    of the vtk-wheel provided.  After a few moments, this selection
+    will show up in the main menu of the manager, too.  Subsequently,
+    push the button in the bottom right corner to add the wheel to the
+    packages considered by =WinPython= eventually managed within the
+    =WPy-3670= folder.  Again after a few moments (about 10 sec), the
+    manager will install the wheel.
 
-   #+ATTR_LATEX:   :width 15cm
-   #+ATTR_HTML:    :width 75%
-   #+CAPTION:  Stages of the installation process.  Left figure:  the manager with a wheel already loaded (blue rectangle) /prior/ to launch the installation (red rectangle) on the index card "Install / upgrade packages".  Middle figure:  processing the wheel-installation.  Right figure: confirmation of installation (index card "Uninstall packages")
-   [[./docSources/WinPythonInstallingProcess.png]]
+    #+ATTR_LATEX:   :width 15cm
+    #+ATTR_HTML:    :width 75%
+    #+CAPTION:  Stages of the installation process.  Left figure:  the manager with a wheel already loaded (blue rectangle) /prior/ to launch the installation (red rectangle) on the index card "Install / upgrade packages".  Middle figure:  processing the wheel-installation.  Right figure: confirmation of installation (index card "Uninstall packages")
+    [[./docSources/WinPythonInstallingProcess.png]]
 
-   Once the intermediate installation notifier clears up, you may close
-   the manager entirely.
+    Once the intermediate installation notifier clears up, you may close
+    the manager entirely.
 
-** Working with the fix
+*** Working with the fix
 
-   Folder =WPy-3670= contains its own CLI, =WinPython Command
-   Prompt.exe=.  A mouse double-click will open this.  As with the
-   native Windows =cmd.exe=, enter the directory of =aRMSD= housing
-   =aRMSD.py=.  You launch the program with
-   #+BEGIN_SRC shell
-     python aRMSD.py
-   #+END_SRC
+    Folder =WPy-3670= contains its own CLI, =WinPython Command
+    Prompt.exe=.  A mouse double-click will open this.  As with the
+    native Windows =cmd.exe=, enter the directory of =aRMSD= housing
+    =aRMSD.py=.  You launch the program with
+    #+BEGIN_SRC shell
+      python aRMSD.py
+    #+END_SRC
 
 ** Known limitations of this fix
 
@@ -171,3 +195,9 @@ download link:
 [fn:openbabel]  Open Babel: The Open Source Chemistry Toolbox, [[http://openbabel.org/wiki/Main_Page]]
 
 
+[fn:WinPythonPath]  The WinPythin distribution includes a package
+manager allowing you to anchor the WinPython's Python /currently/ used
+into the system's =Path= variable, and consequently, to then become
+the one system-wide recognized default.  This will over-write previous
+Python-related settings, though.  If desired, launch the package
+manager, and explicitly choose the "register" option.
