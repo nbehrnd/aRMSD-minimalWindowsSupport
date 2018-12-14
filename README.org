@@ -26,19 +26,11 @@
 
 ** background
 
-   =aRMSD= ([[https://github.com/nbehrnd/aRMSD]]), a program to compare
-   molecular structures with each other, works sufficiently well in an
-   ecosystem of Debian (reference system, testing / Sid toward
-   version 10 / Buster), or Xubuntu (test system was Xubuntu 18.04
-   LTS, point release 18.04.1) if the model data are provided in the
-   =*.xyz= format.  With the help of =openbabel= (version 2.4.1), it
-   equally reads /some/ model data in the =*.pdb= format, too.
-
-   At present (December 2018), however, the instructions provided by
-   the original developer of the program, Arne Wagner, to render the
-   program functional in the Windows environment /appear/ to be
-   invalidated by the continued development of the vtk-rendering
-   engine =aRMSD= relies.[fn:ticket]
+   =aRMSD= ([[https://github.com/nbehrnd/aRMSD]]),[fn:aRMSD] a program to
+   compare molecular structures with each other, works sufficiently
+   well in an ecosystem of Debian, or Xubuntu.  At present
+   (December 2018), I faced difficulties to work with the program in
+   Windows.
 
    /This/ project aims to provide /an elementary/ support for =aRMSD=
    in Windows, allowing to use the program /at all/ by help of
@@ -47,7 +39,7 @@
    It is meant as a /ad hoc/ and temporary fix only.  
 
    In contrast to other distributions of Python (e.g., from
-   [[www.python.org]], or compilations like Anaconda / Miniconda)
+   www.python.org, or compilations like Anaconda / Miniconda)
    providing a permanent installation into your system , =WinPython=
    provides a /self-contained/ functional Python for the Windows
    system.  In other words, you basically just decompress an archive
@@ -64,10 +56,10 @@
    Python 3.6.7) or version (32 bit / 64 bit, if supported by the
    OS).[fn:WinPythonPath]
 
-   As example, the following outlines the essential steps to use
-   =aRMSD= in a 64 bit system (and Python 3.6.5), or in a 32 bit
-   system (and Python 2.7.13) allowing at least a basic use of the
-   program (scrutiny of models in the =*.xyz= format).
+   The following outlines the essential steps to use =aRMSD= in a
+   64 bit system (and Python 3.6.5), or in a 32 bit system (and
+   Python 2.7.13) allowing at least /a basic use/ of the program, the
+   scrutiny of models in the =*.xyz= format.
 
 
 
@@ -78,19 +70,20 @@
    provide you many more packages than required to run =aRMSD=.
 
    =WinPython= (version =WinPython64-3.6.7.0Qt5=)[fn:WinPython]
-   provides Python 3.6.  This compilation includes some of the
-   dependencies outlined by Arne Wagner:  =matplotlib=,
-   =uncertainties=, and performance related =cython=.  With 488 MB
-   size (as compressed archive), it is too large to be mirrored here
-   below, but beside on the project page itself you find it here on a
-   dedicated page on GitHub.[fn:WinPythonGitHub]
+   provides Python 3.6 altogether with some of the dependencies
+   outlined by Arne Wagner: =matplotlib=, =uncertainties=, and
+   performance related =cython=.  With 488 MB size (as compressed
+   archive), it is too large to be mirrored here below, but beside on
+   the project page itself you find it here on a dedicated page on
+   GitHub.[fn:WinPythonGitHub]
 
    The other /essential/ dependency of =aRMSD= is the vtk-rendering
-   engine.[fn:vtk] Currently, the wheel-directory maintained by
-   Christoph Gohlke[fn:GohlkeDirectory] provides only one vtk-wheel
-   working smoothly with the versions of WinPython tested.  It is
-   worth about 27 MB and is mirrored in /this/ repository (folder
-   =cp36-win_amd64=).
+   engine.[fn:vtk] The wheel-directory maintained by Christoph
+   Gohlke[fn:GohlkeDirectory] provides one vtk-wheel suitable here.
+   It is worth about 27 MB and is mirrored in /this/ repository
+   (folder =cp36-win_amd64=).
+
+*** files needed
 
    The two are characterized by these md5sums:
    #+BEGIN_SRC shell
@@ -104,7 +97,7 @@
     64 bit.  The system's =PATH= variable of the system is not
     touched, and no administrator privilege is required.  However,
     anticipate about 2 GB disk space to be used since =WinPython= will
-    provide you with many more packages than only the ones needed to
+    provide you with /many/ more packages than only the ones needed to
     run =aRMSD=.
 
     Download the two files into a directory easy accessible for you.
@@ -118,6 +111,7 @@
 
     #+ATTR_LATEX:   :width 7.5cm
     #+ATTR_HTML:    :width 35%
+    #+NAME:      WinPythonFolder
     #+CAPTION:   Automatically extracted folder by =WinPython=.  Note the entry about the package manager (Control Panel, blue rectangle), and the CLI (red rectangle).
     [[./docSources/WinPythonFolder.png]]
 
@@ -133,47 +127,95 @@
 
     #+ATTR_LATEX:   :width 15cm
     #+ATTR_HTML:    :width 75%
+    #+NAME:     InstallationProcess
     #+CAPTION:  Stages of the installation process.  Left figure:  the manager with a wheel already loaded (blue rectangle) /prior/ to launch the installation (red rectangle) on the index card "Install / upgrade packages".  Middle figure:  processing the wheel-installation.  Right figure: confirmation of installation (index card "Uninstall packages")
     [[./docSources/WinPythonInstallingProcess.png]]
 
     Once the intermediate installation notifier clears up, you may close
     the manager entirely.
 
-*** Working with the fix
+** Example Windows 7 Pro, 32 bit (Python 2.7.13)
 
-    Folder =WPy-3670= contains its own CLI, =WinPython Command
-    Prompt.exe=.  A mouse double-click will open this.  As with the
-    native Windows =cmd.exe=, enter the directory of =aRMSD= housing
-    =aRMSD.py=.  You launch the program with
+   This approach departs from a minimal Python environment requiring a
+   few steps more than the one in the other section.  Installing only
+   the essential modules to work with =aRMSD= leaves you with a
+   considerably smaller footprint, too; only about 450 MB in
+   comparison to about 2 GB of the former.
+
+*** files needed
+   Download both the executable as well as the
+   wheels[fn:GohlkeDirectory] into a directory easily accessible for
+   you.  They are all mirrored into this project's folder
+   =cp27-win32=.  Their md5sums are:
     #+BEGIN_SRC shell
-      python aRMSD.py
+      d02cb43ee04f977b5e017470c67d4de3  Cython-0.28.6-cp27-cp27m-win32.whl
+      e23338f500c076e0703d01109ddf09b6  future-0.17.0-py2-none-any.whl
+      07b9f3f2dcbb050486975e87d8d83a98  matplotlib-2.2.3-cp27-cp27m-win32.whl
+      bdf843a0fc9289169b1285fbfa19175e  mkl_service-1.1.2-cp27-cp27m-win32.whl
+      80f2fb38172ef2b3fb9281310ea2416b  numpy-1.15.4+mkl-cp27-cp27m-win32.whl
+      6203552bd9effc238a37cc0cd30436f3  openbabel-2.4.1-cp27-cp27m-win32.whl
+      8344450ccfb5864bb487c9a1a731c263  PyQt4-4.11.4-cp27-cp27m-win32.whl
+      211afcecc308b06a18d114789a6053c9  uncertainties-3.0.3-py2-none-any.whl
+      fddde0173dcd04015b77591e9f778746  VTK-6.3.0-cp27-cp27m-win32.whl
+      492a27996270cc4ecc0eacf5701fec5f  WinPython-32bit-2.7.13.0Zero.exe
     #+END_SRC
+
+*** installation process
+    
+    Decompress the archive by mouse double-click on the =exe=, which
+    will generate again a separate folder within the current
+    directory.
+
+    This will provide you a Python environment this slim (remember
+    "zero" is part of the file name), that the GUI of the package
+    manager won't work yet.  With the CLI within this folder
+    (=WinPython Command Prompt.exe=), enter the directory where the
+    Qt-wheel is located.  As example,[fn:QtTip] if the wheel was
+    copied into =d:\toto=, then =cd= into this directory, and launch
+    the installation from the CLI by
+    #+BEGIN_SRC shell
+      wppm -i d:\toto\PyQt4-4.11.4-cp27-cp27m-win32.whl
+    #+END_SRC
+    The CLI / =WinPython Command Prompt.exe= will inform you
+    explicitly when this process accomplished.  Subsequently, you may
+    close /this/ interface.
+
+    /Now/ you are able to launch the GUI of the package manager. 
+    Drag-and-drop all the other wheels provided, and to launch their
+    installation.  Again, the package manager progressively informs you
+    about the process, and may be closed once the task is completed.
+
+*** note about this installation
+
+    Gohlke's directory[fn:GohlkeDirectory] equally offers
+    =VTK-7.1.1-cp27-cp27m-win32.whl= not included here.  While your
+    system may differ from the one accessible to mine, updating to
+    this version /broke/ =aRMSD=.
 
 ** Known limitations of this fix
 
-   Again, this solution is meant as /temporary fix/ only.  Hence, not
-   requiring assistance by =openbabel=[fn:openbabel] to convert file
-   formats, =aRMSD= reads most likely /only/ model data provided in
-   the =*.xyz= format.  It actually /is expected/ that =aRMSD= will
-   inform you about the missing link to =openbabel=.  (Since this fix
-   does not accesses the =PATH= variable, it will not recognize
-   =openbabel= even if it were installed on the hosting computer,
-   either.)
+   This /temporary fix/ allows you to align and scrutinize model data
+   -- at least in the most elementary =*.xyz= format -- from the CLI
+   of =WinPython= by
+   #+BEGIN_SRC shell
+     python armsd/aRMSD.py
+   #+END_SRC
+   to generate statistics plots and a permanent record.
 
-   If you need to compare models in a file format different than
-   =*.xyz=, the freeware =openabel= may assist in the data conversion
-   toward this format.
+   Depending on the installation, =aRMSD= may inform you about the
+   missing link to =openbabel=.[fn:openbabel] (Since the =Path=
+   variable is not touched, it will not recognize =openbabel= even if
+   it were installed on the hosting computer, either.)  Consider this
+   freeware if you need to convert models provided in a file format
+   different than =*.xyz=.
 
-   Equally, some of options accessible in the Linux-based use (e.g.,
-   anaglyph representation, less dominating display of the coordinate
-   system by vtk) are skipped here.  Saving the renderings by vtk as
-   *.png (key stroke =s=) is supported.
+   Some options vtk may offer (e.g., anaglyph representation) may be
+   unavailable here.  Saving the renderings by vtk as *.png (key
+   stroke =s=) however is supported.
 
-   However, alignment and scrutiny of the model data, including report
-   generation in a permanent log and provision of the statistics plots
-   are functional.
-   
    #+LATEX:   \begin{center} $\diamond{}$  \end{center}
+
+[fn:aRMSD]  Forked from the original branch https://github.com/armsd/aRMSD.
 
 [fn:ticket]  Compare the issue deposit in the original branch of the
 program, [[https://github.com/armsd/aRMSD/issues]].
@@ -194,10 +236,12 @@ download link:
 
 [fn:openbabel]  Open Babel: The Open Source Chemistry Toolbox, [[http://openbabel.org/wiki/Main_Page]]
 
-
-[fn:WinPythonPath]  The WinPythin distribution includes a package
+[fn:WinPythonPath]  The WinPython distribution includes a package
 manager allowing you to anchor the WinPython's Python /currently/ used
 into the system's =Path= variable, and consequently, to then become
 the one system-wide recognized default.  This will over-write previous
 Python-related settings, though.  If desired, launch the package
 manager, and explicitly choose the "register" option.
+
+[fn:QtTip]  The source for this tip is derived from
+[[https://github.com/winpython/winpython/issues/397]].
